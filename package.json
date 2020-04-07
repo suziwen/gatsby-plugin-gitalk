@@ -1,7 +1,7 @@
 {
   "name": "gatsby-plugin-gitalk",
   "description": "A component for integrating Gitalk comments in Gatsby.",
-  "version": "1.0.0",
+  "version": "1.1.0",
   "repository": "https://github.com/suziwen/gatsby-plugin-gitalk",
   "homepage": "https://suziwen.github.io/gatsby-plugin-gitalk",
   "bugs": {
@@ -37,8 +37,7 @@
     "prop-types": "^15.6.2",
     "cross-env": "^5.2.0"
   },
-  "dependencies": {    
-  },
+  "dependencies": {},
   "peerDependencies": {
     "react": "^16.8.5"
   }
