@@ -20,11 +20,11 @@
   "license": "MIT",
   "scripts": {
     "release": "standard-version",
-    "copy-files": "mkdir lib || true && cp .eslintrc.json readme.md package.json lib",
+    "copy-files": "mkdir lib || true && cp .eslintrc.json README.md package.json lib",
     "clean": "rm -r lib",
     "build": "yarn clean && yarn copy-files && babel src --out-dir lib --copy-files --ignore **/__tests__",
     "watch": "yarn copy-files && babel -w src --out-dir lib --copy-files --ignore **/__tests__",
-    "npm-publish": "git push --follow-tags origin master && yarn build && cd lib && npm publish && cd ../"
+    "npm-publish": "git push --follow-tags origin master && yarn build && cd lib && npm --registry https://registry.npmjs.org publish && cd ../"
   },
   "devDependencies": {
     "@babel/cli": "^7.1.2",
