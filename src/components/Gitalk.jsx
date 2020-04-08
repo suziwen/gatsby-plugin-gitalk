@@ -1,6 +1,6 @@
 import React from 'react'
 import PropTypes from 'prop-types'
-import GitalkComponent from "gitalk/dist/gitalk-component"
+import GitalkComponent from "@suziwen/gitalk/dist/gitalk-component"
 
 export default class GGitalk extends React.Component {
   
