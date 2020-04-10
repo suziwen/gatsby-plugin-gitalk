@@ -11,8 +11,10 @@ export default class GGitalk extends React.Component {
   render() {
     let { options, ...props } = this.props
     const gitalkConfig = {...this.pluginConfig, ...options}
-    return (
-      <GitalkComponent {...props} options={gitalkConfig} />
-    )
+    if (typeof window !== 'undefined') {
+      return (
+        <GitalkComponent {...props} options={gitalkConfig} />
+      )
+    }
   }
 }
