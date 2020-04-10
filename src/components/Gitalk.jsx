@@ -15,6 +15,8 @@ export default class GGitalk extends React.Component {
       return (
         <GitalkComponent {...props} options={gitalkConfig} />
       )
+    } else {
+      return (<></>)
     }
   }
 }
