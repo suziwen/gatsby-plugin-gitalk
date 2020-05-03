@@ -1,20 +1,20 @@
 import Gitalk from './components/Gitalk'
 import axios from 'axios'
 
-const createIssue = async (options)=>{
+const createIssue = async (options, reporter=console)=>{
+  const { owner, repo, title, body, id, labels=['Gitalk'], description, personalToken, url} = options
+  const queryStr = `"Gitalk_${id}" type:issue in:body ${labels.map(label => (`label:${label}`)).join(' ')} repo:${owner}/${repo}`
   const axiosGithub = axios.create({
     baseURL: 'https://api.github.com',
+    auth: {
+      username: owner,
+      password: personalToken
+    },
     headers: {
       'Accept': 'application/json'
     }
   })
-  const { owner, repo, title, body, id, labels=['Gitalk'], description, accessToken, url,  clientID, clientSecret } = options
-  const queryStr = `"Gitalk_${id}" type:issue in:body ${labels.map(label => (`label:${label}`)).join(' ')} repo:${owner}/${repo}`
   const res = await axiosGithub.get(`/search/issues`, {
-    auth: {
-      username: clientID,
-      password: clientSecret
-    },
     params: {
       q: queryStr,
       t: Date.now()
@@ -24,17 +24,13 @@ const createIssue = async (options)=>{
     return
   }
   try {
-  await axiosGithub.post(`/repos/${owner}/${repo}/issues`, {
-    title,
-    labels: labels,
-    body: body || `${url} \n\n ${description}\n\nGitalk_${id}`,
-    headers: {
-      Authorization: `token ${accessToken}`
-    }
-  })
+    await axiosGithub.post(`/repos/${owner}/${repo}/issues`, {
+      title,
+      labels: labels,
+      body: body || `${url} \n\n ${description}\n\nGitalk_${id}`
+    })
   } catch(e) {
-    console.log('error')
-    console.log(e)
+    reporter.error(e)
   }
 }
 
