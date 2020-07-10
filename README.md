@@ -38,6 +38,7 @@ You can use the plugin as shown in this brief example:
 
 ```jsx
 import Gitalk from 'gatsby-plugin-gitalk'
+import '@suziwen/gitalk/dist/gitalk.css'
 
 const PostTemplate = () => {
   let gitalkConfig = {
@@ -51,3 +52,8 @@ const PostTemplate = () => {
 
 export default PostTemplate
 ```
+
+## Custom style
+
+Copy the file `node_modules/@suziwen/gitalk/dist/gitalk.css` , and edit it, then import your modified version.
+
