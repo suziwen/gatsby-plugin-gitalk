@@ -38,7 +38,7 @@
     "standard-version": "^7.1.0"
   },
   "dependencies": {
-    "@suziwen/gitalk": "^2.0.1"
+    "@suziwen/gitalk": "^2.0.2"
   },
   "peerDependencies": {
     "react": "^16.8.5"
