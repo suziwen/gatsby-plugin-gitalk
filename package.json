@@ -35,7 +35,7 @@
     "babel-preset-gatsby-package": "^0.1.2",
     "cross-env": "^5.2.0",
     "prop-types": "^15.6.2",
-    "standard-version": "^7.1.0"
+    "standard-version": "^8.0.2"
   },
   "dependencies": {
     "@suziwen/gitalk": "^2.0.2"
