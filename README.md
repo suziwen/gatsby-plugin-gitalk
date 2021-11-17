@@ -2,6 +2,12 @@
 
 A plugin that simplifies adding [Gitalk](https://github.com/suziwen/gitalk) comments to [Gatsby](https://www.gatsbyjs.org/)  
 
+## Demo
+
+[Demo](https://suziwen.github.io/my-gatsby-gitalk-demo/)
+
+<https://github.com/suziwen/my-gatsby-gitalk-demo>
+
 ## Description  
 The goal of this plugin is to allow users to bring their content to life and cultivate engaged communities by integrating Gitalk comments into their blazing-fast Gatsby websites. After struggling to integrate different Gitalk components into my Gatsby site, creating an easily-configured plugin for the Gatsby ecosystem felt like a no-brainer.  
 
