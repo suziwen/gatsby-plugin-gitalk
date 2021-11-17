@@ -57,3 +57,38 @@ export default PostTemplate
 
 Copy the file `node_modules/@suziwen/gitalk/dist/gitalk.css` , and edit it, then import your modified version.
 
+## Auto create new issue
+
+
+This operation is option, you can create issue manually
+
+```js
+// gatsby-node.js
+
+....
+const {GitalkPluginHelper} = require('gatsby-plugin-gitalk');
+const articlesCount = 10
+const gitalkOpts = {...}
+....
+exports.createPages = async ({ graphql, actions, getNode, reporter }) => {
+
+  // this token (GITALK_CREATE_ISSUE_TOKEN) apply from https://github.com/settings/tokens/new
+  // which must have create new issue permission,
+  // and for security issue, dont push public
+  const gitalkCreateIssueToken = process.env.GITALK_CREATE_ISSUE_TOKEN
+  // Due to github api request limit, it is recommended to do the number of automatically created issues here 
+  if (gitalkOpts && gitalkCreateIssueToken && articlesCount < 20) {
+    const issueOptions = Object.assign({}, gitalkOpts, {
+      id: 'id',
+      title: 'title',
+      description: 'description',
+      url: 'url',
+    }, {
+      personalToken: gitalkCreateIssueToken
+    })
+    // this function will try create new issue when it doesnt exist;
+    await GitalkPluginHelper.createIssue(issueOptions)
+    reporter.info(`create issue success`)
+  }
+
+```
