@@ -41,6 +41,6 @@
     "@suziwen/gitalk": "^2.0.2"
   },
   "peerDependencies": {
-    "react": "^16.8.5"
+    "react": "^16.8.5 || ^17.0.0"
   }
 }
